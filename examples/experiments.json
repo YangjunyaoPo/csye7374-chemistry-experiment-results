@@ -1,0 +1,26 @@
+{
+  "description": "Fictional teaching records for a product-isolation exercise. Each yield is reported as recorded by the class.",
+  "records": [
+    {
+      "id": "A",
+      "title": "Product isolation, trial A",
+      "comparison_group": "class product-isolation exercise",
+      "result": {"metric": "isolated yield", "value": "78.0", "unit": "%"},
+      "notes": ["No visible solid remained in the transfer vessel."]
+    },
+    {
+      "id": "B",
+      "title": "Product isolation, trial B",
+      "comparison_group": "class product-isolation exercise",
+      "result": {"metric": "isolated yield", "value": "64.5", "unit": "%"},
+      "notes": ["Visible solid remained on the transfer vessel after transfer."]
+    },
+    {
+      "id": "C",
+      "title": "Product isolation, trial C",
+      "comparison_group": "class product-isolation exercise",
+      "result": {"metric": "isolated yield", "value": "61.0", "unit": null},
+      "notes": ["The log contains the number 61.0 without a unit."]
+    }
+  ]
+}
