@@ -1,0 +1,113 @@
+{
+  "format": "chemistry-agent-trace-v1",
+  "mode": "live",
+  "model": "qwen/qwen3-14b",
+  "source_sha256": "5293f772c3f375091b7e0b13a188205e777f8c7077c4438acc13f675584e0c58",
+  "notes_sha256": "beb4825258830ac2664b129bf5e0f45a063909b54fb0a7c60d4e98d58404e8ab",
+  "request": "Using A as the baseline, what is the numerical difference in isolated yield for experiment C?",
+  "steps": [
+    {
+      "step": 1,
+      "decision": {
+        "action": "compare_results",
+        "arguments": {
+          "a": "A",
+          "b": "C"
+        },
+        "reason": "To calculate the signed difference in isolated yield between experiment A (baseline) and experiment C."
+      },
+      "observation": {
+        "tool": "compare_results",
+        "source_sha256": "5293f772c3f375091b7e0b13a188205e777f8c7077c4438acc13f675584e0c58",
+        "a": "A",
+        "b": "C",
+        "value_a": "78.0",
+        "value_b": "61.0",
+        "unit_a": "%",
+        "unit_b": null,
+        "source_refs": {
+          "A": "/records/0",
+          "C": "/records/2"
+        },
+        "metric": "isolated yield",
+        "ok": false,
+        "code": "missing_unit",
+        "message": "Supply the recorded unit before comparing the outcomes.",
+        "missing_unit_ids": [
+          "C"
+        ]
+      }
+    },
+    {
+      "step": 2,
+      "decision": {
+        "action": "read_record",
+        "arguments": {
+          "id": "C"
+        },
+        "reason": "To retrieve the missing unit for experiment C's isolated yield measurement and complete the comparison."
+      },
+      "observation": {
+        "tool": "read_record",
+        "source_sha256": "5293f772c3f375091b7e0b13a188205e777f8c7077c4438acc13f675584e0c58",
+        "ok": true,
+        "source_ref": "/records/2",
+        "record": {
+          "id": "C",
+          "title": "Product isolation, trial C",
+          "comparison_group": "class product-isolation exercise",
+          "result": {
+            "metric": "isolated yield",
+            "value": "61.0",
+            "unit": null
+          },
+          "notes": [
+            "The log contains the number 61.0 without a unit."
+          ]
+        }
+      }
+    },
+    {
+      "step": 3,
+      "decision": {
+        "action": "ask",
+        "arguments": {
+          "question": "What is the unit for experiment C's isolated yield?",
+          "step": 2
+        },
+        "reason": "The unit for experiment C's isolated yield is missing, and it is required to calculate the numerical difference."
+      },
+      "observation": {
+        "ok": true
+      }
+    }
+  ],
+  "outcome": {
+    "status": "needs_input",
+    "question": "What is the unit for experiment C's isolated yield?",
+    "evidence": [
+      {
+        "step": 2,
+        "result": {
+          "tool": "read_record",
+          "source_sha256": "5293f772c3f375091b7e0b13a188205e777f8c7077c4438acc13f675584e0c58",
+          "ok": true,
+          "source_ref": "/records/2",
+          "record": {
+            "id": "C",
+            "title": "Product isolation, trial C",
+            "comparison_group": "class product-isolation exercise",
+            "result": {
+              "metric": "isolated yield",
+              "value": "61.0",
+              "unit": null
+            },
+            "notes": [
+              "The log contains the number 61.0 without a unit."
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

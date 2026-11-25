@@ -1,0 +1,89 @@
+{
+  "format": "chemistry-agent-trace-v1",
+  "mode": "live",
+  "model": "qwen/qwen3-14b",
+  "source_sha256": "5293f772c3f375091b7e0b13a188205e777f8c7077c4438acc13f675584e0c58",
+  "notes_sha256": "beb4825258830ac2664b129bf5e0f45a063909b54fb0a7c60d4e98d58404e8ab",
+  "request": "What is B minus A in isolated yield? Just give the numerical difference and units.",
+  "steps": [
+    {
+      "step": 1,
+      "decision": {
+        "action": "compare_results",
+        "arguments": {
+          "a": "A",
+          "b": "B"
+        },
+        "reason": "To calculate the signed difference between B and A in isolated yield, we need to compare their measurements."
+      },
+      "observation": {
+        "tool": "compare_results",
+        "source_sha256": "5293f772c3f375091b7e0b13a188205e777f8c7077c4438acc13f675584e0c58",
+        "a": "A",
+        "b": "B",
+        "value_a": "78.0",
+        "value_b": "64.5",
+        "unit_a": "%",
+        "unit_b": "%",
+        "source_refs": {
+          "A": "/records/0",
+          "B": "/records/1"
+        },
+        "metric": "isolated yield",
+        "unit": "%",
+        "ok": true,
+        "difference": "-13.5",
+        "difference_unit": "percentage points",
+        "direction": "lower"
+      }
+    },
+    {
+      "step": 2,
+      "decision": {
+        "action": "report",
+        "arguments": {
+          "kind": "comparison",
+          "steps": [
+            1
+          ]
+        },
+        "reason": "The numerical difference between B and A in isolated yield is -13.5 percentage points."
+      },
+      "observation": {
+        "ok": true,
+        "accepted_steps": [
+          1
+        ]
+      }
+    }
+  ],
+  "outcome": {
+    "status": "reported",
+    "kind": "comparison",
+    "evidence": [
+      {
+        "step": 1,
+        "result": {
+          "tool": "compare_results",
+          "source_sha256": "5293f772c3f375091b7e0b13a188205e777f8c7077c4438acc13f675584e0c58",
+          "a": "A",
+          "b": "B",
+          "value_a": "78.0",
+          "value_b": "64.5",
+          "unit_a": "%",
+          "unit_b": "%",
+          "source_refs": {
+            "A": "/records/0",
+            "B": "/records/1"
+          },
+          "metric": "isolated yield",
+          "unit": "%",
+          "ok": true,
+          "difference": "-13.5",
+          "difference_unit": "percentage points",
+          "direction": "lower"
+        }
+      }
+    ]
+  }
+}
